@@ -316,7 +316,7 @@ class WoocommerceIR_SMS_Archive_List_Table extends WP_List_Table {
 
 		if ( ! empty( $_REQUEST['orderby'] ) ) {
 			$sql .= $wpdb->prepare( ' ORDER BY %s', sanitize_text_field( $_REQUEST['orderby'] ) );
-			$sql .= $_REQUEST['order'] == 'DESC' ? ' DESC' : ' ASC';
+			$sql .= $_REQUEST['order'] == 'DESC' ? ' DESC' : 'ASC';
 		} else {
 			$sql .= ' ORDER BY id DESC';
 		}

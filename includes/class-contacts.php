@@ -268,7 +268,7 @@ class WoocommerceIR_SMS_Contacts_List_Table extends WP_List_Table {
 		}
 
 		if ( ! empty( $_REQUEST['product_id'] ) ) {
-			$where[] = '(`product_id` IN (' . self::request_product_id() . '))';
+			$where[] = '`product_id` IN (' . self::request_product_id() . ')';
 		}
 
 		$where = ! empty( $where ) ? '(' . implode( ' AND ', $where ) . ')' : '';
@@ -290,17 +290,17 @@ class WoocommerceIR_SMS_Contacts_List_Table extends WP_List_Table {
 			}
 
 		} else {
-			$sql = $wpdb->prepare( "SELECT %s FROM %s", $select, $table );
+			$sql = "SELECT $select FROM `$table`";
 			if ( ! empty( $where ) ) {
 				$sql .= " WHERE {$where}";
 			}
 		}
 
 		if ( ! empty( $order_by ) ) {
-			$sql .= $_REQUEST['order'] == 'DESC' ? ' DESC' : ' ASC';
-			$sql .= $wpdb->prepare( " ORDER BY %s %s", $order_by, $order );
+			$order = $_REQUEST['order'] == 'DESC' ? ' DESC' : 'ASC';
+			$sql .= $wpdb->prepare( " ORDER BY %s $order", $order_by );
 			if ( $order_by != 'product_id' ) {
-				$sql .= $wpdb->prepare( ", product_id %s", $order );
+				$sql .= ", product_id $order";
 			}
 		} else {
 			$sql .= ' ORDER BY id DESC';
@@ -433,9 +433,10 @@ class WoocommerceIR_SMS_Contacts {
 		global $wpdb;
 
 			$table      = WoocommerceIR_SMS_Contacts_List_Table::table();
-			$query = "SELECT mobile FROM %s WHERE product_id=%d";
-			$query .= ' AND (groups="%s" OR groups LIKE "%s,%" OR groups LIKE "%,%s,%" OR groups LIKE "%,%s")';
-			$mobiles = $wpdb->get_col( $wpdb->prepare( $query, $table, $product_id, $group, $group, $group,$group ) );
+			$query = "SELECT mobile FROM `$table` WHERE product_id=%d";
+			$query .= " AND $table.groups=%s";
+			$sql = $wpdb->prepare( $query, $product_id, $group );
+			$mobiles = $wpdb->get_col( $sql );
 			$mobiles = array_unique( array_filter( $mobiles ) );
 
 		return $mobiles;

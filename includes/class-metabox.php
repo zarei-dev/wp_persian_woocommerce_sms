@@ -98,6 +98,8 @@ class WoocommerceIR_SMS_Metabox {
 
 	public function productMetaboxResult( int $product_id, string $message, string $group ) {
 
+		$group = '_in';
+
 		if ( empty( $group ) ) {
 			wp_send_json_error( [ 'message' => 'یک گروه برای دریافت پیامک انتخاب کنید.' ] );
 		}
@@ -168,19 +170,9 @@ class WoocommerceIR_SMS_Metabox {
         <div id="pwoosms_metabox_result"></div>
 
 		<?php
-		$safemetabox = array(
-		'a' => array(),
-		'p' => array(),
-		'select' => array(),
-		'option' => array(),
-		'label' => array(),
-		'optgroup' => array(
-			'label' => array()
-		)
-		
-		
-		);
-		echo wp_kses($html_above,$safemetabox);
+
+		echo $html_above;
+
 		 ?>
 
         <p>
@@ -188,7 +180,7 @@ class WoocommerceIR_SMS_Metabox {
                       name="pwoosms_message" style="width: 100%; height: 78px;" title=""></textarea>
         </p>
 
-		<?php echo wp_kses($html_below,$safemetabox) ; ?>
+		<?php echo $html_below ; ?>
 
         <div class="wide" id="pwoosms_divider" style="text-align: left">
             <input type="submit" class="button save_order button-primary" name="pwoosms_submit"
@@ -298,8 +290,7 @@ class WoocommerceIR_SMS_Metabox {
 					if ( ! empty( $groups ) ) { ?>
                         <optgroup label="به مشترکین گروه های زیر:">
 							<?php foreach ( $groups as $code => $text ) { ?>
-                                <option
-                                    value="<?php echo esc_attr( $code ); ?>"><?php echo esc_attr( $text ); ?></option>
+                                <option value="<?php echo $code; ?>"><?php echo esc_attr( $text ); ?></option>
 							<?php } ?>
                         </optgroup>
 					<?php }
