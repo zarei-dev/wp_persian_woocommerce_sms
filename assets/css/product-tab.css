@@ -1,0 +1,149 @@
+a[href="#pwoosms"]:before {
+    content: "\f101" !important;
+}
+
+#pwoosms .select2-container {
+    width: 70% !important;
+    margin-bottom: 15px;
+}
+
+/*----------------------------------------------------*/
+.pwoosms label {
+    float: right;
+}
+
+.pwoosms_tab_status {
+    float: left;
+}
+
+.pwoosms-tab-help h3 {
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+.pwoosms-tab-help p {
+    margin: 0;
+    padding-left: 13px;
+}
+
+.pwoosms-tab-divider {
+    display: block;
+    width: 100%;
+    height: 2px;
+    margin: 1.5em 0;
+    /*border-bottom: 1px solid rgba(182, 182, 182, 0.35)*/
+}
+
+.pwoosms-tab-help {
+    display: none;
+    margin-top: .75em;
+    padding-top: .5em
+}
+
+.pwoosms-tab-help h3 {
+    margin-right: 10px;
+}
+
+.pwoosms-tab-help {
+    font-size: 20px;
+    padding: 0 .5em;
+    margin-top: .5em
+}
+
+.pwoosms-tab-help:hover {
+    cursor: pointer
+}
+
+.pwoosms_tab_mobile {
+    width: 70% !important;
+    direction: ltr;
+    text-align: left;
+}
+
+.pwoosms_tab_content {
+    position: relative;
+}
+
+.pswoosms_tab_radio {
+
+}
+
+.pswoosms_tab_radio legend {
+    margin-right: 150px !important;
+}
+
+.rtl .pswoosms_tab_radio legend {
+    margin-right: -150px !important;
+    margin-left: 150px !important;
+}
+
+.pswoosms_tab_radio ul li {
+    display: table !important;
+    margin-bottom: 0 !important;
+    padding: 0 !important;
+}
+
+.pswoosms_tab_radio ul li label {
+    width: auto !important;
+}
+
+/*-------------------------------------------*/
+
+.sms_tab_counter {
+    float: right;
+    margin-right: 4.25em;
+}
+
+.sms_tab_counter span {
+    line-height: 1.3;
+}
+
+#duplicate_this_row_sms {
+    display: none
+}
+
+#add_another_sms_tab {
+    background: #cc99c2;
+    border-color: #b366a4;
+    -webkit-box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 1px 0 rgba(0, 0, 0, .15);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, .25), 0 1px 0 rgba(0, 0, 0, .15);
+    color: #fff;
+    text-deconartion: none !important
+}
+
+.move-tab-data-down, .move-tab-data-up {
+    font-size: 25px;
+    transition: color .2s
+}
+
+.move-tab-data-down:hover, .move-tab-data-up:hover {
+    cursor: pointer;
+    color: #4c9cce
+}
+
+.button-holder-sms {
+    margin-left: 85px;
+    margin-top: 6px;
+    position: absolute;
+}
+
+.rtl .button-holder-sms {
+    margin-right: 85px;
+}
+
+.delete_this_sms_tab {
+    color: crimson;
+    text-decoration: none;
+    font-size: 11px;
+    font-family: tahoma, serif;
+    line-height: 24px;
+    margin: 0;
+}
+
+.setting-div {
+    width: 100%;
+    border-bottom: 1px solid #eee;
+    margin: 9px 0;
+}
+
+/*----------------------------------------------*/
