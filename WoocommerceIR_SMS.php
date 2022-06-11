@@ -30,6 +30,11 @@ if ( ! defined( 'PWOOSMS_INCLUDE_DIR' ) ) {
 	define( 'PS_WOO_SMS_PLUGIN_LIB_PATH', PWOOSMS_INCLUDE_DIR );//deprecated
 }
 
+function pwoo_sms_array_sanitize_text_field($value) {
+	return is_array( $value ) ? array_map( 'sanitize_text_field', $value ) : sanitize_text_field( $value );
+}
+
+
 register_activation_hook( __FILE__, 'WoocommerceIR_SMS_Register' );
 register_deactivation_hook( __FILE__, 'WoocommerceIR_SMS_Register' );
 function WoocommerceIR_SMS_Register() {
